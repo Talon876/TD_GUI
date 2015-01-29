@@ -46,8 +46,10 @@ void TD_Button::update(Adafruit_FT6206 &touch, Adafruit_ILI9341 &gfx) {
 }
 
 void TD_Button::draw(Adafruit_ILI9341 &gfx) {
-	drawBox(gfx);
-	fillBorder(gfx);
+	if(!invisible) {
+		drawBox(gfx);
+		fillBorder(gfx);
+	}
 }
 
 bool TD_Button::isPointInButton(TS_Point &point) {

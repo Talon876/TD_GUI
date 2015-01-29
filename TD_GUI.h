@@ -39,6 +39,7 @@ public:
 	
 	int16_t x, y, width, height, border;
 	int16_t primaryColor, secondaryColor, clearColor;
+	bool invisible;
 private:
 	bool isTouched, lastIsTouched;
 	void draw(Adafruit_ILI9341 &gfx);
