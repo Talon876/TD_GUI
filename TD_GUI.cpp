@@ -1,3 +1,4 @@
+#include <SD.h>
 #if ARDUINO >= 100
  #include "Arduino.h"
 #else
@@ -77,5 +78,19 @@ void TD_Button::fillBorder(Adafruit_ILI9341 &gfx) {
 				height - i*2, clearColor);
 		}
 	}
+}
+
+int TD_FileUtils::readFile(char *filename, String &result) {
+	File textFile;
+	if((textFile = SD.open(filename)) == NULL) {
+		result = "error";
+		return -1;
+	}
+	result = "";
+	while(textFile.available()) {
+		result.concat((char)textFile.read());
+	}
+	textFile.close();
+	return 0;
 }
 

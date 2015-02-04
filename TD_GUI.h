@@ -48,5 +48,10 @@ private:
 	bool isPointInButton(TS_Point &point);
 };
 
+class TD_FileUtils {
+public:
+	static int readFile(char *filename, String &result);
+};
+
 
 #endif
