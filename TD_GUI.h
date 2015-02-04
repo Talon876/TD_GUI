@@ -20,12 +20,16 @@
 #define WHITE       0xFFFF      /* 255, 255, 255 */
 #define ORANGE      0xFD20      /* 255, 165,   0 */
 #define GREENYELLOW 0xAFE5      /* 173, 255,  47 */
-#define PINK        0xF81F
+#define TRANSPARENT 0xF81F
 
 #define ROTATE_NONE 0
 #define ROTATE_90 1
 #define ROTATE_180 2
 #define ROTATE_270 3
+
+#define BITMAP_HEADER 0x4D42
+#define BITMAP_BUFFER 20
+#define BITMAP_UNCOMPRESSED 0
 
 class TD_Button {
 public:
@@ -51,6 +55,17 @@ private:
 class TD_FileUtils {
 public:
 	static int readFile(char *filename, String &result);
+	static uint16_t read16(File &file);
+	static uint32_t read32(File &file);
+};
+
+class TD_BmpUtils {
+public:
+	static int drawBitmap(Adafruit_ILI9341 &gfx, char *filename,
+		uint8_t x, uint16_t y);
+	static int drawBitmap(Adafruit_ILI9341 &gfx, char *filename,
+		uint8_t x, uint16_t y, int maskColor);
+	static bool enableTransparency;
 };
 
 
