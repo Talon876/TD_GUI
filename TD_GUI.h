@@ -65,7 +65,6 @@ public:
 		uint8_t x, uint16_t y);
 	static int drawBitmap(Adafruit_ILI9341 &gfx, char *filename,
 		uint8_t x, uint16_t y, int maskColor);
-	static bool enableTransparency;
 };
 
 
